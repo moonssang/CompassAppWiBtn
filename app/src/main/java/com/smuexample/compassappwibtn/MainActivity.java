@@ -11,8 +11,8 @@ import com.smuexample.compassappwibtn.CompassActivity;
 import com.smuexample.compassappwibtn.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnOpenCompass;
-    Intent compassActivity;
+    Button btnOpenCompass, btnMap;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,15 +21,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnOpenCompass = findViewById(R.id.btnOpenCompassView);
         btnOpenCompass.setOnClickListener(this);
+        btnMap = findViewById(R.id.btnMap);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnOpenCompassView:
-                compassActivity = new Intent(this, CompassActivity.class);
-                startActivity(compassActivity); break;
+                intent = new Intent(this, CompassActivity.class);
+                 break;
+            case R.id.btnMap:
+                intent = new Intent(this, MapsActivity.class);
+                startActivity(intent); break;
             default: break;
         }
+        startActivity(intent);
     }
 }
